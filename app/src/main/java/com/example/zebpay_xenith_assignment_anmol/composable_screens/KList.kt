@@ -1,14 +1,13 @@
 package com.example.zebpay_xenith_assignment_anmol.composable_screens
 
-import android.widget.Toast
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import androidx.compose.material3.Text
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 
 class KList<T> {
 
@@ -40,8 +39,8 @@ class KList<T> {
     }
 
     @Composable
-    fun Render() {
-        LazyColumn(modifier = Modifier.padding(padding)) {
+    fun Render(modifier: Modifier = Modifier) {
+        LazyColumn(modifier = modifier) {
             headerTitle?.let {
                 item {
                     Text(text = it)

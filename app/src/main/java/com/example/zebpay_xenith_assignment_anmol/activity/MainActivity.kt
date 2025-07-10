@@ -55,15 +55,14 @@ fun KListScreenContent(modifier: Modifier = Modifier) {
     KList<String>()
         .padding(16.dp)
         .header("\n" +
-                "\n" +
-                "Top Gainers")
+                "  Top Gainers")
         .items(coinList) { coin ->
             KListItem(coin)
         }
         .onItemClick { coin ->
             "$coin tapped"
         }
-        .Render()
+        .Render(modifier)
 }
 
 @Composable
