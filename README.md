@@ -1,5 +1,4 @@
-# Android Project Template
-
+# Android Project Assignment
 Architecture followed-> Clean& MVVM blend with modularisation.
 
 This Android project follows modern development practices using **Jetpack Compose**, **Kotlin**, and **Modular Architecture**. The project is configured with the latest stable versions of key libraries and tools, enabling rapid development with high maintainability.
