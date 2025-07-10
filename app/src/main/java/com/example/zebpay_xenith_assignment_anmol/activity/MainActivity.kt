@@ -71,14 +71,14 @@ fun KListItem(title: String) {
     val context = LocalContext.current
     Card(
         modifier = Modifier
+            .clickable { Toast.makeText(context,"$title tapped", Toast.LENGTH_SHORT).show() }
             .padding(vertical = MaterialTheme.space.space4, horizontal = 8.dp)
             .fillMaxWidth(),
     ) {
         Text(
             text = title,
             modifier = Modifier
-                .padding(MaterialTheme.space.space16)
-                .clickable { Toast.makeText(context,"$title tapped", Toast.LENGTH_SHORT).show() },
+                .padding(MaterialTheme.space.space16),
             style = MaterialTheme.typography.bodySmall
         )
     }
