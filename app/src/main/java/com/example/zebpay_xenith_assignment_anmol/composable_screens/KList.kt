@@ -1,5 +1,6 @@
 package com.example.zebpay_xenith_assignment_anmol.composable_screens
 
+import android.widget.Toast
 import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
@@ -15,6 +16,7 @@ class KList<T> {
     private var headerTitle: String? = null
     private var items: List<T> = emptyList()
     private var itemContent: @Composable (T) -> Unit = {}
+    private var onItemClick: ((T) -> String)? = null
 
     fun padding(padding: Dp): KList<T> {
         this.padding = padding
@@ -29,6 +31,11 @@ class KList<T> {
     fun items(items: List<T>, content: @Composable (T) -> Unit): KList<T> {
         this.items = items
         this.itemContent = content
+        return this
+    }
+
+    fun onItemClick(callback: (T) -> String): KList<T> {
+        this.onItemClick = callback
         return this
     }
 
@@ -48,6 +55,7 @@ class KList<T> {
         }
     }
 
+    //If needed for usage in other classes
     companion object {
         val instance: KList<Any> = KList()
         val <T> KList<T>.typed: KList<T> get() = this

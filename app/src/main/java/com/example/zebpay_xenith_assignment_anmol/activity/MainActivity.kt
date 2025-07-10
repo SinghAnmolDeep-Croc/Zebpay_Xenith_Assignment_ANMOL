@@ -1,6 +1,7 @@
 package com.example.zebpay_xenith_assignment_anmol.activity
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -17,6 +18,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
@@ -25,6 +27,7 @@ import com.example.zebpay_xenith_assignment_anmol.ui.theme.Zebpay_Xenith_Assignm
 import com.example.zebpay_xenith_assignment_anmol.ui.theme.space
 
 class MainActivity : ComponentActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -51,15 +54,21 @@ fun KListScreenContent(modifier: Modifier = Modifier) {
 
     KList<String>()
         .padding(16.dp)
-        .header("Top Gainers")
+        .header("\n" +
+                "\n" +
+                "Top Gainers")
         .items(coinList) { coin ->
             KListItem(coin)
+        }
+        .onItemClick { coin ->
+            "$coin tapped"
         }
         .Render()
 }
 
 @Composable
 fun KListItem(title: String) {
+    val context = LocalContext.current
     Card(
         modifier = Modifier
             .padding(vertical = MaterialTheme.space.space4, horizontal = 8.dp)
@@ -67,27 +76,10 @@ fun KListItem(title: String) {
     ) {
         Text(
             text = title,
-            modifier = Modifier.padding(MaterialTheme.space.space16),
+            modifier = Modifier
+                .padding(MaterialTheme.space.space16)
+                .clickable { Toast.makeText(context,"$title tapped", Toast.LENGTH_SHORT).show() },
             style = MaterialTheme.typography.bodySmall
         )
     }
 }
-
-//@Composable
-//fun TopGainersScreen(viewModel: CoinsViewModel = hiltViewModel()
-//) {
-//    val coins by viewModel.coins.collectAsState()
-//
-//    KList(coins,
-//        padding = 10.dp,
-//        header = "Top Gainers") { coin ->
-//        KListItem(coin)
-//    }
-//
-//    KList
-//        .padding(10.dp)
-//        .header(title = "Top Gainers")
-//        .items(coins) { coin ->
-//            KListItem(coin)
-//        }
-//}
