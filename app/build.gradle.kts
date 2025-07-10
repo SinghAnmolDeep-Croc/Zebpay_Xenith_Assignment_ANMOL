@@ -6,12 +6,13 @@ plugins {
 
 android {
     namespace = "com.example.zebpay_xenith_assignment_anmol"
-    compileSdk = 34
+    //noinspection GradleDependency
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.zebpay_xenith_assignment_anmol"
         minSdk = 30
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -56,4 +57,32 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    //koin
+//    implementation(platform(libs.koin.bom))
+//    implementation(libs.koin.core)
+//    implementation(libs.koin.android)
+//    implementation(libs.koin.compose)
+//    implementation(libs.koin.start)
+//
+//    coil
+//    implementation(libs.coil.compose)
+//    implementation(libs.coil.svg)
+//
+//    //ktor
+//    implementation(libs.ktor.client.core)
+//
+//    // Paging
+//    implementation(libs.paging.runtime.ktx)
+//    implementation(libs.paging.common.ktx)
+//
+//    //google fonts
+//    implementation(libs.ui.text.google.fonts)
+//
+//    //firebase
+//    implementation(platform(libs.firebase.bom))
+//    implementation(libs.firebase.messaging.ktx)
+//    implementation(libs.firebase.crashlytics.ktx)
+//    implementation(libs.firebase.analytics.ktx)
+
 }
